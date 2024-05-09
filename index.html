@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursor al inicio al dejar de escribir</title>
+</head>
+<body>
+
+<input id="prueba" placeholder="Escribe algo...">
+
+<script>
+    var texto = document.getElementById('prueba');
+
+    var intervalo;
+
+    function resetCursor() {
+        clearTimeout(intervalo);//llamo a la funcion tantas veces que nunca se ejecuta
+        intervalo = setTimeout(function() {
+            texto.selectionStart = 0;
+            texto.selectionEnd = 0;//estoy haciendo como que selecciono del primer al primer espacio
+        }, 1000);
+    }
+
+    inputElement.addEventListener('input', resetCursor);
+</script>
+
+</body>
+</html>
